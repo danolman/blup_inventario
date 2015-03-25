@@ -1,6 +1,6 @@
 angular.module('AppControllers')
 
-.controller('PropiedadesController', function($scope){
+.controller('PropiedadesController', function($scope, fichaFactory){
 	
 });
 
