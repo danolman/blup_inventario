@@ -1,0 +1,54 @@
+<ion-view view-title="ficha producto">
+    <ion-content>
+    	<div class="list list-inset">
+		  	<label class="item item-input">
+		    	<input type="text" placeholder="Horas de trabajo" ng-model="$parent.prod_nombre">
+		  	</label>
+		</div>
+		<hr/>
+		<div class="list list-inset">
+		  	<label class="item item-input">
+		    	<input type="text" placeholder="Insumo" ng-model="$parent.prod_nombre">
+		  	</label>
+		</div>
+		<div class="row">
+		  <div class="col col-50">
+			  <label class="item item-input">
+			    <input type="text" placeholder="Costo insumo" ng-model="$parent.prod_nombre">
+			  </label>
+		  </div>
+		  <div class="col col-50">
+		  	<label class="item item-input item-select">
+			    <div class="input-label">
+			      Medida
+			    </div>
+			    <select>
+			      <option>Mayorista</option>
+			      <option selected>Kilos</option>
+			      <option>Litros</option>
+			    </select>
+			  </label>
+		  </div>
+
+		</div>
+		<div class="row">
+			<div class="col col-50">
+			  <label class="item item-input">
+			    <input type="text" placeholder="Cant. insumo" ng-model="$parent.prod_nombre">
+			  </label>
+			  </div>
+			  <div class="col col-50">
+			  	<label class="item item-input item-select">
+				    <div class="input-label">
+				      Medida
+				    </div>
+				    <select>
+				      <option>Unidad</option>
+				      <option selected>GR</option>
+				      <option>ML</option>
+				    </select>
+				  </label>
+			  </div>
+		</div>
+    </ion-content>
+</ion-view>

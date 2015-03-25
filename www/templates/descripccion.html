@@ -1,0 +1,30 @@
+<ion-view view-title="ficha producto">
+ <ion-content class="has-header">
+ 	<form name="form_ficha">
+	  	<div class="list">
+
+		  <div class="list list-inset">
+		  	<label class="item item-input">
+		    	<input type="text" placeholder="Nombre producto" ng-model="$parent.prod_nombre" required />
+		  	</label>
+		  </div>
+		   <div class="list list-inset">
+		  	<label class="item item-input">
+		    	<textarea placeholder="Descripción"ng-model="$parent.prod_drescripcion"></textarea>
+		  	</label>
+		  </div>
+		  <div class="list list-inset">
+		  	<label class="item item-input">
+		    	<input type="text" placeholder="Ingresar código" ng-model="$parent.prod_codigo" required />
+		  	</label>
+		  </div>
+		  <div class="padding">
+		  	<button class="button button-block button-balanced" ng-click="crearProducto()" ng-disabled="form_ficha.$invalid">
+			  Guardar y continuar
+			</button>
+		  </div>
+		</div><!--/list-->
+	</form>
+ 
+ </ion-content>
+</ion-view>

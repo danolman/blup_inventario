@@ -1,0 +1,61 @@
+#login-logo{
+	width: 80%;
+	margin: 15% 10% 2%;
+	text-align: center;
+}
+#canvas{
+	width: 100%;
+	height: auto;
+}
+.marginTopBottom{
+	width: 100%;
+	height: 50px;
+}
+/********************HOME************************/
+.grafico{
+	border-bottom: solid 1px #e2e2e2;
+}
+.grafico-tabla{
+	width: 100%;
+}
+.grafico-color{
+	width: 20px;
+	height: 20px;
+	background-color: black;
+}
+.grafico-tr{
+	border-bottom: solid 1px #e2e2e2;
+}
+.grafico-tr td{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.ganancia{
+	background-color: rgba(90,229,90,1);
+}
+.perdida{
+	background-color: rgba(216,72,72,1);
+}
+.costos{
+	background-color: rgba(121,172,186,1);
+}
+
+/********************PREVIEW************************/
+.preview-resumen{
+	text-align: center;
+	border-bottom:solid 1px #e2e2e2;
+}
+.preview-resumen:first-child{
+	border-right:solid 1px #e2e2e2;
+}
+.preview-resumen:last-child{
+	border-left:solid 1px #e2e2e2;
+}
+.preview-resumen h4{
+
+}
+.preview-resumen p{
+	background-color: #e2e2e2;
+	color: #666;
+}
