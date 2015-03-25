@@ -8,8 +8,14 @@ angular.module("AppFactories", [])
 					nombre : 'dd',
 					descripcion : '',
 					codigo : '',
-					propiedades : {},
-					Beneficios: {},
+					propiedades : {
+						
+					},
+					Beneficios: {
+						id
+						idFIcha
+						propiedad
+					},
 					valorHoras: 1,
 					insumos : [
 						{

@@ -55,7 +55,10 @@ App.config(function($stateProvider, $urlRouterProvider){
       {
         url: '/propiedades',
         views : {
-            'tab-prop' : {templateUrl: 'templates/propiedades.html'}
+            'tab-prop' : {
+              templateUrl: 'templates/propiedades.html',
+              controller: 'PropiedadesController'
+            }
         }      
       })
       .state('ficha.receta', 

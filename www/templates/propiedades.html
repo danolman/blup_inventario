@@ -4,21 +4,16 @@
     	<div class="list">
 		  <div class="item item-input-inset">
 		    <label class="item-input-wrapper">
-		      <input type="text" placeholder="Propiedad">
+		      <input type="text" placeholder="Propiedad" ng-model="$parent.propiedad">
 		    </label>
-		    <button class="button button-small">
+		    <button class="button button-small" ng-click="addPropiedad();">
 		      Agregar
 		    </button>
 		  </div>
 
-		  <div class="item">
-		    Propiedad A
-		  </div>
-		  <div class="item">
-		    Propiedad B
-		  </div>
-		  <div class="item">
-		    Propiedad C
+		  <div class="item item-icon-right" ng-repeat="item in propiedades">
+		    {{item.propiedad}}
+		    <i class="icon ion-trash-a" ng-click="propiedades.splice($index, 1)"></i>
 		  </div>
 		</div>
 
@@ -26,27 +21,22 @@
     	<div class="list">
 		  <div class="item item-input-inset">
 		    <label class="item-input-wrapper">
-		      <input type="text" placeholder="Beneficio">
+		      <input type="text" placeholder="Beneficio" ng-model="$parent.beneficio">
 		    </label>
-		    <button class="button button-small">
+		    <button class="button button-small" ng-click="addBeneficio();">
 		      Agregar
 		    </button>
 		  </div>
 
-		   <div class="item">
-		    Beneficio A
-		  </div>
-		  <div class="item">
-		    Beneficio B
-		  </div>
-		  <div class="item">
-		    Beneficio C
-		  </div>
+		   <div class="item item-icon-right" ng-repeat="item in beneficios">
+		    {{item.beneficio}}
+		    <i class="icon ion-trash-a" ng-click="beneficios.splice($index, 1)"></i>
+		  </div>		  
 		</div>
 
     <!--FInalizar-->
 		<div class="padding">
-		  	<button class="button button-block button-balanced" ng-disabled="form_ficha.$invalid">
+		  	<button class="button button-block button-balanced" ng-click="guardarContinuar()">
 			  Guardar y continuar
 			</button>
 		  </div>
