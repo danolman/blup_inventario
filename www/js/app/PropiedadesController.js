@@ -15,11 +15,11 @@ angular.module('AppControllers')
 	}
 
 	$scope.guardarContinuar = function(){
-		if($rootScope.fichaProducto){
+		if($rootScope.fichaProducto.nombre != null){
 			$rootScope.fichaProducto.propiedades = $scope.propiedades;
 			$rootScope.fichaProducto.beneficios = $scope.beneficios;
 			console.log($rootScope.fichaProducto);
-			$state.go('ficha.receta');
+			$state.go('ficha.preview');
 		}else{
 			alert('Debes crear la descripción del producto');
 			$state.go('ficha.descripcion');

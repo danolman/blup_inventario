@@ -2,19 +2,19 @@
     <ion-content>
     	<div class="list list-inset">
 		  	<label class="item item-input">
-		    	<input type="text" placeholder="Horas de trabajo" ng-model="$parent.prod_nombre">
+		    	<input type="text" placeholder="Horas de trabajo" ng-model="$parent.receta_horas">
 		  	</label>
 		</div>
 		<hr/>
 		<div class="list list-inset">
 		  	<label class="item item-input">
-		    	<input type="text" placeholder="Insumo" ng-model="$parent.prod_nombre">
+		    	<input type="text" placeholder="Insumo" ng-model="$parent.receta_tipo">
 		  	</label>
 		</div>
 		<div class="row">
 		  <div class="col col-50">
 			  <label class="item item-input">
-			    <input type="text" placeholder="Costo insumo" ng-model="$parent.prod_nombre">
+			    <input type="number" placeholder="Costo insumo" ng-model="$parent.receta_costo">
 			  </label>
 		  </div>
 		  <div class="col col-50">
@@ -22,10 +22,12 @@
 			    <div class="input-label">
 			      Medida
 			    </div>
-			    <select>
-			      <option>Mayorista</option>
-			      <option selected>Kilos</option>
-			      <option>Litros</option>
+			    <select ng-model="$parent.receta_medida">
+			      <option value="">Elegir</option>
+			      <option value="Mayorista">Mayorista</option>
+			      <option value="Kilos">Kilos</option>
+			      <option value="Litros">Litros</option>
+			      <option value="Hora">Hora</option>
 			    </select>
 			  </label>
 		  </div>
@@ -34,7 +36,7 @@
 		<div class="row">
 			<div class="col col-50">
 			  <label class="item item-input">
-			    <input type="text" placeholder="Cant. insumo" ng-model="$parent.prod_nombre">
+			    <input type="number" placeholder="Cant. insumo" ng-model="$parent.receta_unidades">
 			  </label>
 			  </div>
 			  <div class="col col-50">
@@ -42,13 +44,34 @@
 				    <div class="input-label">
 				      Medida
 				    </div>
-				    <select>
-				      <option>Unidad</option>
-				      <option selected>GR</option>
-				      <option>ML</option>
+				    <select ng-model="$parent.receta_medidaUnidades">
+				      <option value="">Elegir</option>
+				      <option value="Unidad">Unidad</option>
+				      <option value="GR">GR</option>
+				      <option value="ML">ML</option>
+				      <option value="Minutos">Minutos</option>
 				    </select>
 				  </label>
 			  </div>
+		</div>
+		<div class="padding">
+			<button class="button button-block button-outline button-balanced" ng-click="addInsumo()">
+			  Agergar insumo
+			</button>		
+		</div>
+
+<!--LISTADO DE INSUMOS-->
+    	<div class="list">
+		   <div class="item item-icon-right" ng-repeat="item in insumos">
+		    {{item.tipo}}
+		    <i class="icon ion-trash-a" ng-click="insumos.splice($index, 1)"></i>
+		  </div>		  
+		</div>
+<!--GUARDAR-->		
+		<div class="padding">
+			<button class="button button-block button-balanced" ng-click="guardarContinuar();">
+			  Guardar y continuar
+			</button>
 		</div>
     </ion-content>
 </ion-view>

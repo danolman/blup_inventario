@@ -1,26 +1,32 @@
 <ion-view view-title="ficha producto">
-    <ion-content>
+    <ion-content ng-init="calcular();">
     	<ion-list>
     		<ion-item class="item item-thumbnail-left">
     			<img src="img/prev.svg">
-			     <h2>Titlo de la imagen</h2>
-			     <p>descripción linda</p>
+			     <h2>{{fichaProducto.nombre}}</h2>
+			     <p>{{fichaProducto.descripcion}}</p>
     		</ion-item>
     	</ion-list>
     	<div class="row">
     		<div class="col preview-resumen">
-    			<h4>$100.000</h4>
+    			<h4>${{fichaProducto.costo}}</h4>
     			<p>COSTO</p>
     		</div>
     		<div class="col preview-resumen">
-    			<h4>$250.000</h4>
+    			<h4>${{fichaProducto.valorReferencial}}</h4>
     			<p>VENTA REF</p>
     		</div>
     		<div class="col preview-resumen">
-    			<h4>$250.000</h4>
+    			<h4>${{fichaProducto.ganancia}}</h4>
     			<p>GANANCIA</p>
     		</div>
     	</div>
+        <ion-list>
+            <label class="item item-input">
+                <span class="input-label">Precio final:</span>
+                <input type="text" ng-model="$parent.preducto_precioFinal" placeholder="..." value="">
+            </label>
+        </ion-list>
     	<ion-list>
     		<ion-item>
     			<h3>Envase</h3>

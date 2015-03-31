@@ -19,7 +19,7 @@ App.run(function($ionicPlatform) {
 })
 
 App.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/ficha/receta');
+  $urlRouterProvider.otherwise('/ficha/descripcion');
 
   $stateProvider
       .state('login', 
@@ -41,12 +41,12 @@ App.config(function($stateProvider, $urlRouterProvider){
         abstract: true,     
         templateUrl: 'templates/ficha.html',
       })
-      .state('ficha.descripccion', 
+      .state('ficha.descripcion', 
       {
-        url: '/descripccion',
+        url: '/descripcion',
         views : {
             'tab-desc' : {
-              templateUrl: 'templates/descripccion.html',
+              templateUrl: 'templates/descripcion.html',
               controller: 'DescripcionController'
             }
         }      
@@ -65,14 +65,20 @@ App.config(function($stateProvider, $urlRouterProvider){
       {
         url: '/receta',
         views : {
-            'tab-receta' : {templateUrl: 'templates/receta.html'}
+            'tab-receta' : {
+              templateUrl: 'templates/receta.html',
+              controller: 'RecetasController'
+            }
         }      
       })
       .state('ficha.preview', 
       {
         url: '/preview',
         views : {
-            'tab-prev' : {templateUrl: 'templates/preview.html'}
+            'tab-prev' : {
+              templateUrl: 'templates/preview.html',
+              controller : 'PreviewController'
+            }
         }      
       })
       ;
