@@ -2,6 +2,20 @@ angular.module("AppFactories", [])
 
 .factory("fichaFactory", function() {
 
+		var fichaProducto = [];
+
+		function calcular(){
+			var costo = 0;
+			for(var i = 0; i< fichaProducto.length; i++){
+				console.log(fichaProducto[i].costoTotalInsumo);
+				costo = costo + fichaProducto[i].costoTotalInsumo;
+				$scope.fichaProducto.costo = costo;
+			}
+			fichaProducto.valorReferencial = fichaProducto.costo * 4;
+			fichaProducto.ganancia = fichaProducto.valorReferencial - fichaProducto.costo;
+			return fichaProducto;
+		}
+
 	 //document.addEventListener("deviceready", function(){
 
 	 	localStorage.clear();
@@ -58,6 +72,9 @@ angular.module("AppFactories", [])
 	 //}, false);
 
 		return{
-			//fichaProducto : fichaProducto
+			fichaProducto : fichaProducto,
+			getCalculo : function(){
+				return calcular();
+			}
 		}
 });
