@@ -1,5 +1,6 @@
 angular.module('AppControllers')
 
+
 .controller('DescripcionController', function($scope, $rootScope, $state, fichaFactory, categoriaFactory){
 
 	categoriaFactory.getCategoria().then(function(data){
@@ -7,15 +8,16 @@ angular.module('AppControllers')
       $scope.arrayCategorias = data;
     });
 
-	$rootScope.fichaProducto = [];
+
+	$scope.fichaProducto = fichaFactory.fichaProducto;
 		
 		$scope.crearFicha = function(){
 			
-			$rootScope.fichaProducto.nombre = $scope.prod_nombre;
-			$rootScope.fichaProducto.descripcion = $scope.prod_drescripcion;
-			$rootScope.fichaProducto.codigo = $scope.prod_codigo;
+			$scope.fichaProducto.nombre = $scope.prod_nombre;
+			$scope.fichaProducto.descripcion = $scope.prod_drescripcion;
+			$scope.fichaProducto.codigo = $scope.prod_codigo;
 			
-			console.log($rootScope.fichaProducto);
+			console.log(fichaFactory.fichaProducto);
 			$state.go('ficha.receta');
 		}
 });

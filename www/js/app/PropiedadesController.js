@@ -1,6 +1,7 @@
 angular.module('AppControllers')
 
-.controller('PropiedadesController', function($scope, $rootScope, $state){
+.controller('PropiedadesController', function($scope, $state, fichaFactory){
+	$scope.fichaProducto = fichaFactory.fichaProducto;
 	$scope.propiedades = [];
 	$scope.beneficios = [];
 
@@ -15,10 +16,10 @@ angular.module('AppControllers')
 	}
 
 	$scope.guardarContinuar = function(){
-		if($rootScope.fichaProducto.nombre != null){
-			$rootScope.fichaProducto.propiedades = $scope.propiedades;
-			$rootScope.fichaProducto.beneficios = $scope.beneficios;
-			console.log($rootScope.fichaProducto);
+		if($scope.fichaProducto.nombre != null){
+			$scope.fichaProducto.propiedades = $scope.propiedades;
+			$scope.fichaProducto.beneficios = $scope.beneficios;
+			console.log($scope.fichaProducto);
 			$state.go('ficha.preview');
 		}else{
 			alert('Debes crear la descripción del producto');

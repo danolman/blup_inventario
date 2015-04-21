@@ -1,6 +1,7 @@
 angular.module('AppControllers')
 
-.controller('RecetasController', function($scope, $rootScope, $state){
+.controller('RecetasController', function($scope, $state, fichaFactory){
+	$scope.fichaProducto = fichaFactory.fichaProducto;
 	$scope.insumos = [];
 
 	$scope.addInsumo = function(){
@@ -34,7 +35,6 @@ angular.module('AppControllers')
 		   	costoTotalInsumo : total   	
 		   };
 		   $scope.insumos.push(insumo);
-		   console.log($rootScope.fichaProducto, insumo);
 
 		   //limpiar formulario
 		   insumo = {};
@@ -50,8 +50,9 @@ angular.module('AppControllers')
 	}
 
 	$scope.guardarContinuar = function(){
-		if($rootScope.fichaProducto.nombre != null){
-			$rootScope.fichaProducto.insumos = $scope.insumos;
+		if($scope.fichaProducto.nombre != null){
+			$scope.fichaProducto.insumos = $scope.insumos;
+			console.log(fichaFactory.fichaProducto);
 			$state.go('ficha.propiedades');
 		}else{
 			alert('Debes crear la descripción del producto');

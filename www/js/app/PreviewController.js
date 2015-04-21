@@ -41,8 +41,14 @@ angular.module('AppControllers')
 				$state.go('ficha.descripcion');
 		}
 
-	}
 
+	/*if($scope.fichaProducto.nombre != null && $scope.fichaProducto.insumos != null){
+		console.log($scope.fichaProducto.insumos);
+	}
+	else{
+			alert('Debes crear la descripción del producto');
+			$state.go('ficha.descripcion');
+	}*/
 	
 });
 
