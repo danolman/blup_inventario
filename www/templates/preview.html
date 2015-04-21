@@ -1,4 +1,4 @@
-<ion-view view-title="ficha producto">
+<ion-view cache-view="false" view-title="ficha producto">
     <ion-content ng-init="calcular();">
     	<ion-list>
     		<ion-item class="item item-thumbnail-left">
@@ -24,27 +24,31 @@
         <ion-list>
             <label class="item item-input">
                 <span class="input-label">Precio final:</span>
-                <input type="text" ng-model="$parent.preducto_precioFinal" placeholder="..." value="">
+                <input type="text" ng-model="$parent.producto_precioFinal" placeholder="..." value="{{valorReferencia}}">
             </label>
         </ion-list>
     	<ion-list>
-    		<ion-item>
-    			<h3>Envase</h3>
-    			<p>POM021458 | 	1 unidad</p>
+    		<ion-item class="item item-divider item-icon-right">
+    			<h3>Insumos</h3>
+                <i class="icon ion-minus" ng-show="verInsumos" ng-click="toggleInsumos(false)"></i>
+                <i class="icon ion-plus" ng-show="!verInsumos" ng-click="toggleInsumos(true)"></i>
     		</ion-item>
-    		<ion-item>
-    			<h3>Propiedades</h3>
-    			<p>uno, dos,tres</p>
-    		</ion-item>
-    		<ion-item>
-    			<h3>Beneficios</h3>
-    			<p>uno, dos,tres</p>
-    		</ion-item>
-    		<ion-item>
-    			<h3>Insumo 1</h3>
-    			<p>costo $12.000 | cant. 5 gr</p>
-    		</ion-item>
+            <ion-item ng-repeat="item in fichaProducto.insumos" ng-show="verInsumos == true">
+                <h3>{{item.tipo}}</h3>
+                <p>POM021458 |  1 unidad</p>
+            </ion-item>
     	</ion-list>
+        <ion-list>
+            <ion-item class="item item-divider item-icon-right">
+                <h3>Propiedades</h3>
+                <i class="icon ion-minus" ng-show="verPropiedades" ng-click="togglePropiedades(false)"></i>
+                <i class="icon ion-plus" ng-show="!verPropiedades" ng-click="togglePropiedades(true)"></i>
+            </ion-item>
+            <ion-item ng-repeat="item in fichaProducto.propiedades" ng-show="verPropiedades == true">
+                <h3>{{item.propiedad}}</h3>
+                <p>POM021458 |  1 unidad</p>
+            </ion-item>
+        </ion-list>
 
     	<div class="padding">
 		  	<button class="button button-block button-balanced" ng-disabled="form_ficha.$invalid">

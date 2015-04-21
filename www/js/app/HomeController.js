@@ -1,8 +1,8 @@
 angular.module('AppControllers')
 
-.controller('HomeController', function($scope, $rootScope){
+.controller('HomeController', function($scope){
 	console.log('home');
-	$rootScope.toggleLeft;
+
 	var doughnutData = [
 				{
 					value: 300,
@@ -26,7 +26,7 @@ angular.module('AppControllers')
 			];
 
 			var ctx = document.getElementById("canvas").getContext("2d");
-			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});		
+			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData);		
   
 });
 

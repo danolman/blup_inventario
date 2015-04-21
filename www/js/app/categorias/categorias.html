@@ -1,0 +1,56 @@
+<ion-view cache-view="false" view-title="Categorías" >
+
+ 	<ion-nav-buttons side="right">
+   	 	<button class="button button-clear button-positive" ng-click="openModal()">Categoría</button>
+ 	</ion-nav-buttons>
+	
+	<ion-content>
+	<ion-refresher
+	    pulling-text="Actualizar"
+	    on-refresh="getCategoria()">
+	 </ion-refresher>
+		<ion-list>
+			<ion-item ng-repeat="item in arrayCategorias">
+				{{item.categoria}}
+				<ion-option-button class="button-assertive" ng-click="deleteCategoria()">
+			      Eliminar
+			    </ion-option-button>
+			</ion-item>
+		</ion-list>
+	<script id="my-modal.html" type="text/ng-template">
+	  <ion-modal-view>
+	    <ion-header-bar>
+	      <h1 class="title">Crear categoría</h1>
+		  <button class="button button-clear button-positive" ng-click="closeModal()">Cerrar</button>
+	    </ion-header-bar>
+	    <ion-content>
+	    	<form name="formCategoria">
+		      <ion-list class="list list-inset">
+		      	<ion-item>
+		      		<input type="text" placeholder="Nombre categoría" id="nombreCategoria" ng-model="nueva.categoria" required/>
+		      	</ion-item>
+		      </ion-list>
+		     
+
+		    <div class="padding">
+		    	<!--<button class="button button-block button-balanced" disabled="{{isDisabled}}" ng-click="ingresarCategoria()">-->
+		    	<button class="button button-block button-balanced" ng-disabled="formCategoria.$invalid" ng-click="ingresarCategoria()">
+					  Ingresar nueva categoría
+				</button>
+		    </div>
+	    </form>
+	    <div class="padding">
+	    	<button class="button button-block button-outline button-balanced" ng-click="closeModal()">
+				  Cancelar
+			</button>
+	    </div>
+
+	    </ion-content>
+	  </ion-modal-view>
+	</script>
+	</ion-content>
+
+	
+
+
+</ion-view>

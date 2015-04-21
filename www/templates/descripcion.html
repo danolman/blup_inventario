@@ -1,8 +1,16 @@
 <ion-view view-title="ficha producto">
  <ion-content class="has-header">
  	<form name="form_ficha">
-	  	<div class="list">
+	  	<div class="list list-inset">
 
+	  	  <label class="item item-input item-select">
+		    <div class="input-label">
+		      Categoría
+		    </div>
+		    <select ng-model="categoriaSelect" ng-options="item.categoria for item in arrayCategorias" required>
+		    </select>
+		  </label>
+ 	</div>
 		  <div class="list list-inset">
 		  	<label class="item item-input">
 		    	<input type="text" placeholder="Nombre producto" ng-model="$parent.prod_nombre" required />

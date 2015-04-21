@@ -3,7 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var App = angular.module('App', ['ionic', 'AppControllers', 'AppFactories', 'ngCordova'])
+var App = angular.module('App', ['ionic', 'AppControllers', 'AppFactories', 'ngCordova', 'factory'])
+
+App.constant('serverURL', 'http://www.blup.cl/blup_service/');
 
 App.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -17,21 +19,22 @@ App.run(function($ionicPlatform) {
     }
   });
 })
+App.constant('url', 'http://www.blup.cl/blup_service/');
 
 App.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/ficha/descripcion');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
       .state('login', 
       {
         url: '/',
-        templateUrl: 'templates/login.html',
+        templateUrl: 'js/app/login/login.html',
         controller : 'LoginController'
       })
       .state('home', 
       {
         url: '/home',
-        templateUrl: 'templates/home.html',
+        templateUrl: 'js/app/home/home.html',
         controller : 'HomeController'
       })
 //FICHA PRODUCTO
@@ -81,6 +84,41 @@ App.config(function($stateProvider, $urlRouterProvider){
             }
         }      
       })
+//FICHA REGISTRO
+      .state('registro', 
+      {
+        url: '/registro', 
+        abstract: true,     
+        templateUrl: 'templates/registro.html',
+      })
+      .state('registro.seleccion', 
+      {
+        url: '/seleccion',
+        views : {
+            'tab-seleccionProducto' : {
+              templateUrl: 'templates/seleccionProducto.html',
+              controller: 'SeleccionController'
+            }
+        }      
+      })
+      .state('registro.detalle', 
+      {
+        url: '/detalle',
+        views : {
+            'tab-detalleVenta' : {
+              templateUrl: 'templates/detalleVenta.html',
+              controller: 'DetalleController'
+            }
+        }      
+      })
+//CATEGORIAS
+    .state('categorias',
+      {
+         url: '/categorias',
+        templateUrl: 'js/app/categorias/categorias.html',
+        controller: 'CategoriaController'
+      
+    })
       ;
 });
 

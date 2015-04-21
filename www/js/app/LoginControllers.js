@@ -1,7 +1,9 @@
 angular.module('AppControllers', [])
 
 .controller('LoginController', function($scope, $rootScope, $ionicSideMenuDelegate, $state){
-	$rootScope.toggleLeft = function() {
+	console.log('login, ');
+	$scope.toggleLeft = function() {
+		alert();
     	$ionicSideMenuDelegate.toggleLeft();
   	};
 });

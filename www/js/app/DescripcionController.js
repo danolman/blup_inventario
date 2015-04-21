@@ -1,6 +1,11 @@
 angular.module('AppControllers')
 
-.controller('DescripcionController', function($scope, $rootScope, $state, fichaFactory){
+.controller('DescripcionController', function($scope, $rootScope, $state, fichaFactory, categoriaFactory){
+
+	categoriaFactory.getCategoria().then(function(data){
+      console.log(data);
+      $scope.arrayCategorias = data;
+    });
 
 	$rootScope.fichaProducto = [];
 		
